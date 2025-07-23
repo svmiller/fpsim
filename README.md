@@ -10,11 +10,11 @@ data.
 
 Now, there are different measures of foreign policy similarity to consider:
 
-a) Kendall's (1938) Tau-b
-b) Scott's (1955) pi
-c) Cohen's (1960) kappa
-d) Signorino and Ritter's (1999) S
-e) ideal point distances (applicable to UN voting only)
+- Kendall's (1938) Tau-b
+- Scott's (1955) pi
+- Cohen's (1960) kappa
+- Signorino and Ritter's (1999) S
+- ideal point distances (applicable to UN voting only)
 
 Of these measures, a few things to further belabor:
 
