@@ -30,7 +30,7 @@ srs <- function(x, y, data = "alliances",
       } else {
         denom <- length(x)*(1^2)
       }
-      1 - 2*(num/denom)
+      s <- 1 - 2*(num/denom)
 
     } else if(distances == "absolute") {
 
@@ -41,7 +41,7 @@ srs <- function(x, y, data = "alliances",
       } else {
         denom <- length(x)
       }
-      x <- 1 - 2*(num/denom)
+      s <- 1 - 2*(num/denom)
 
     }
   } else if(data == "voting") {
@@ -57,7 +57,7 @@ srs <- function(x, y, data = "alliances",
       } else {
         denom <- length(x)*(1^2)
       }
-      1 - 2*(num/denom)
+      s <- 1 - 2*(num/denom)
 
     } else if(distances == "absolute") {
 
@@ -68,13 +68,14 @@ srs <- function(x, y, data = "alliances",
       } else {
         denom <- length(x)
       }
-      x <- 1 - 2*(num/denom)
+      s <- 1 - 2*(num/denom)
 
     }
 
 
   }
 
+  return(s)
 
 }
 
