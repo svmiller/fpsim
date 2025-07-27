@@ -53,6 +53,10 @@ You can override that by hard-setting the range in the \code{range} argument.
 The function subsets to complete cases of the two vectors for which you want
 an S score. If weights are included, the function further subsets to complete
 cases including the weights as well.
+
+The function implicitly assumes that \code{x1} and \code{x2} are columns in a data
+frame. One indirect check for this looks at whether \code{x1} and \code{x2} are the
+same length. The function will stop if they're not.
 \subsection{Several Comments on Weighting}{
 
 If it were my call to make, I'd caution against the IR standard of using
@@ -113,7 +117,14 @@ column in the data frame you're using.
 }
 }
 \examples{
+
 srs(gmyrus14$gmy, gmyrus14$rus, distances = 'absolute')
 srs(gmyrus14$gmy, gmyrus14$rus, distances = 'squared')
 srs(gmyrus14$gmy, gmyrus14$rus, distances = 'absolute', weights = gmyrus14$syscap)
+
+}
+\references{
+Signorino, Curtis S. and Jeffrey M. Ritter. "Tau-b or Not Tau-B: Measuring
+the Similarity of Foreign Policy Positions." \emph{International Studies Quarterly}
+43(1): 115–44.
 }

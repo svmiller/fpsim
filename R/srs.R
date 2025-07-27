@@ -34,6 +34,10 @@
 #' an S score. If weights are included, the function further subsets to complete
 #' cases including the weights as well.
 #'
+#' The function implicitly assumes that `x1` and `x2` are columns in a data
+#' frame. One indirect check for this looks at whether `x1` and `x2` are the
+#' same length. The function will stop if they're not.
+#'
 #' ## Several Comments on Weighting
 #'
 #' If it were my call to make, I'd caution against the IR standard of using
@@ -105,12 +109,24 @@
 #' to be a certain value. If NULL, the function calculates a range based on the
 #' maximum and minimum values observed across both `x1` and `x2`. See details
 #' section for more.
+#'
 #' @examples
+#'
 #' srs(gmyrus14$gmy, gmyrus14$rus, distances = 'absolute')
 #' srs(gmyrus14$gmy, gmyrus14$rus, distances = 'squared')
 #' srs(gmyrus14$gmy, gmyrus14$rus, distances = 'absolute', weights = gmyrus14$syscap)
+#'
+#' @references
+#'
+#' Signorino, Curtis S. and Jeffrey M. Ritter. "Tau-b or Not Tau-B: Measuring
+#' the Similarity of Foreign Policy Positions." *International Studies Quarterly*
+#' 43(1): 115–44.
 
 srs <- function(x1, x2, distances = 'absolute', weights = NULL, range = NULL) {
+
+  if(length(x1) != length(x2)) {
+    stop("`x1` and `x2` are not the same length.")
+  }
 
   if (!is.null(weights) && (length(weights) != length(x1) || length(weights) != length(x2))) {
     stop("`weights` must be the same length as `x1` and `x2` if you're going to provide it.")

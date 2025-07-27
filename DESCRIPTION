@@ -1,0 +1,20 @@
+Package: fpsim
+Title: Compute Measures of Foreign Policy Similarity/Agreement
+Version: 0.0.0.9000
+Authors@R: person("Steven", "Miller",
+                  email = "steve@svmiller.com", 
+                  role = c("aut", "cre"),
+                  comment = c(ORCID = "0000-0003-4072-6263"))
+Maintainer: Steven Miller <steve@svmiller.com>
+Description: These are tools that allow users to compute various measures of
+    similarity or association that one might see in the study of international
+    relations. These include measures like Signorino and Ritter's S 
+    (weighted/unweighted), Cohen's weighted kappa, and Scott's pi. These tools
+    offer the ability to generate such estimates of dyadic foreign policy
+    similarity for analyses in the study of international relations. They also
+    offer interested students the ability to learn how these estimates are
+    calculated.
+License: License: GPL (>=2)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
