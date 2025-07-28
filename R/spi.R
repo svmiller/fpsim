@@ -1,19 +1,18 @@
-#' Calculate Cohen's (1960, 1968) weighted kappa
+#' Calculate Scott's (1955) pi
 #'
 #' @description
 #'
-#' \code{cohenk()} takes two vectors and returns Cohen's kappa as an estimate
-#' of chance-corrected agreement.
+#' \code{spi()} takes two vectors and returns Scott's (1955) pi coefficient,
+#' communicating extent of inter-observer reliability.
 #'
 #' @return
 #'
-#' \code{cohenk()} takes two vectors and returns Cohen's kappa as an estimate
-#' of chance-corrected agreement.
+#' \code{spi()} takes two vectors and returns Scott's (1955) pi coefficient,
+#' communicating extent of inter-observer reliability.
 #'
 #' @details
-#'
 #' The function subsets to complete cases of the two vectors for which you want
-#' Cohen's kappa.
+#' Scott's pi.
 #'
 #' The function implicitly assumes that `x1` and `x2` are columns in a data
 #' frame. One indirect check for this looks at whether `x1` and `x2` are the
@@ -29,32 +28,27 @@
 #' won't.
 #'
 #'
+#'
 #' @param x1 a vector, and one assumes an integer
 #' @param x2 a vector, and one assumes an integer
-#' @param w_exp an exponent to apply to the weight matrix. Default is 2 for
-#' squared distances in the weight matrix. Supplying a 1 would make for linear
-#' distances.
 #' @param levels defaults to NULL, but an optional vector that defines the full
 #' sequence of values that could be observed in `x1` and `x2`. If NULL, the
 #' function looks for observed values.
 #'
 #' @examples
 #'
-#' cohenk(gmyrus14$gmy, gmyrus14$rus, levels = 0:3) # levels argument necessary
-#' cohenk(usamex46$vote1, usamex46$vote2) # levels argument not necessary here.
+#' spi(gmyrus14$gmy, gmyrus14$rus, levels = 0:3) # levels argument necessary
+#' spi(usamex46$vote1, usamex46$vote2) # levels argument not necessary here.
 #'
 #' @references
 #'
-#' Cohen, Jacob. 1960. "A Coefficient of Agreement for Nominal Scales."
-#' *Educational and Psychological Measurement* 20(1): 37-46.
+#' Scott, William A. 1955. "Reliability of Content Analysis: The Case of Nominal
+#' Scale Coding." *Public Opinion Quarterly* 19(3): 321–5.
 #'
-#' Cohen, Jacob. 1968. "Weighted Kappa: Nominal Scale Agreement with Provision
-#' for Scaled Disagreement or Partial Credit." *Psychological Bulletin*
-#' 70(4): 213--220.
-#'
+#' @importFrom stats complete.cases
 #' @export
 
-cohenk <- function(x1, x2, w_exp = 2, levels = NULL) {
+spi <- function(x1, x2, levels = NULL) {
 
   if(length(x1) != length(x2)) {
     stop("`x1` and `x2` are not the same length.")
@@ -78,23 +72,20 @@ cohenk <- function(x1, x2, w_exp = 2, levels = NULL) {
 
   tab <- table(factor(x1, levels = use_these_levels),
                factor(x2, levels = use_these_levels))
-  o <- prop.table(tab)
 
-  rmarg <- rowSums(o)
-  cmarg <- colSums(o)
+  # Total nobs
+  n <- sum(tab)
 
-  e <- outer(rmarg, cmarg)
+  # Observed agreement (po)
+  po <- sum(diag(tab)) / n
 
-  rng <- max(use_these_levels) - min(use_these_levels)
+  # Expected agreement (pe)
+  # Scott’s pi assumes both raters/voters/classifiers/whatever draw from the same distribution
+  marg <- rowSums(tab + t(tab)) / (2 * n)
+  pe <- sum(marg^2)
 
-  w <- outer(use_these_levels, use_these_levels, function(i, j) {
-    d <- abs(i - j) / rng
-    d <- d^w_exp
-  })
+  # Hi Scott
+  pi <- (po - pe) / (1 - pe)
 
-  k <- 1 - (sum(w*o)/sum(w*e))
-
-  return(k)
-
+  return(pi)
 }
-

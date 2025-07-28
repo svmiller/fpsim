@@ -121,6 +121,9 @@
 #' Signorino, Curtis S. and Jeffrey M. Ritter. "Tau-b or Not Tau-B: Measuring
 #' the Similarity of Foreign Policy Positions." *International Studies Quarterly*
 #' 43(1): 115–44.
+#'
+#' @importFrom stats complete.cases
+#' @export
 
 srs <- function(x1, x2, distances = 'absolute', weights = NULL, range = NULL) {
 
@@ -151,11 +154,13 @@ srs <- function(x1, x2, distances = 'absolute', weights = NULL, range = NULL) {
 
   if(is.null(range)) {
 
-  levs <- sort(unique(c(x1, x2)))
-  diff <- max(levs) - min(levs)
+    levs <- sort(unique(c(x1, x2)))
+    diff <- max(levs) - min(levs)
 
   } else {
+
     diff <- range
+
   }
 
   if(distances == 'squared') {
@@ -166,8 +171,9 @@ srs <- function(x1, x2, distances = 'absolute', weights = NULL, range = NULL) {
   } else if(distances == 'absolute') {
 
     if(is.null(weights)) {
-    num <- sum(abs(x1 - x2))
-    denom <- length(x1)*diff
+
+      num <- sum(abs(x1 - x2))
+      denom <- length(x1)*diff
 
     } else {
 
@@ -180,6 +186,7 @@ srs <- function(x1, x2, distances = 'absolute', weights = NULL, range = NULL) {
   }
 
   s <- 1 - 2*(num/denom)
+
   return(s)
 
 }
