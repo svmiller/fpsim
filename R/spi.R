@@ -77,15 +77,15 @@ spi <- function(x1, x2, levels = NULL) {
   n <- sum(tab)
 
   # Observed agreement (po)
-  po <- sum(diag(tab)) / n
+  po <- sum(diag(tab))/n
 
   # Expected agreement (pe)
   # Scott’s pi assumes both raters/voters/classifiers/whatever draw from the same distribution
-  marg <- rowSums(tab + t(tab)) / (2 * n)
+  marg <- rowSums(tab + t(tab))/(2*n)
   pe <- sum(marg^2)
 
   # Hi Scott
-  pi <- (po - pe) / (1 - pe)
+  pi <- (po - pe)/(1 - pe)
 
   return(pi)
 }
