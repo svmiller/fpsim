@@ -1,6 +1,7 @@
 library(tidyverse)
 library(peacesciencer)
 library(isard)
+library(qs2)
 
 create_dyadyears() -> DDY
 attr(DDY, "ps_system") <- NULL
@@ -82,5 +83,8 @@ DDYV %>%
   arrange(ccode1, year,  ccode2) -> DDYV
 
 DDYV %>%
+  left_join(., peacesciencer::cow_nmc %>% select(ccode, year, cinc) %>% rename(ccode2 = ccode)) %>%
   mutate(binatop = ifelse(ordatop >= 1, 1, 0)) %>%
-  select(ccode1:year, ordatop, binatop) -> DDYV
+  select(ccode1:year, ordatop, binatop) -> ATOPDDY
+
+qs_save(ATOPDDY, "data-raw/atop/ATOPDDY.qs")
