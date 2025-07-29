@@ -3,6 +3,8 @@ library(peacesciencer)
 library(isard)
 library(qs2)
 
+load("~/Koofr/data/un-voting/2024/UNVotes-1.RData")
+
 completeVotes %>%
   as_tibble() %>%
   filter(!is.na(ccode) & !is.na(member)) %>%
