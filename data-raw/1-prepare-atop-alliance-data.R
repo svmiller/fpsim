@@ -85,6 +85,6 @@ DDYV %>%
 DDYV %>%
   left_join(., peacesciencer::cow_nmc %>% select(ccode, year, cinc) %>% rename(ccode2 = ccode)) %>%
   mutate(binatop = ifelse(ordatop >= 1, 1, 0)) %>%
-  select(ccode1:year, ordatop, binatop) -> ATOPDDY
+  select(ccode1:year, cinc, ordatop, binatop) -> ATOPDDY
 
 qs_save(ATOPDDY, "data-raw/atop/ATOPDDY.qs")
