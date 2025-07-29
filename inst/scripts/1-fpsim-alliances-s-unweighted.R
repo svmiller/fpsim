@@ -94,7 +94,7 @@ FPSIMASU <- foreach(
 
   svusmatrix %>% as_tibble() %>%
     mutate(ccode1 = ccodes) %>%
-    gather(ccode2, sallyvs, -ccode1) %>%
+    gather(ccode2, sallyvus, -ccode1) %>%
     arrange(ccode1) %>%
     mutate(ccode2 = as.numeric(ccode2)) %>%
     mutate(year = y) %>%
@@ -102,7 +102,7 @@ FPSIMASU <- foreach(
 
   svuamatrix %>% as_tibble() %>%
     mutate(ccode1 = ccodes) %>%
-    gather(ccode2, sallyva, -ccode1) %>%
+    gather(ccode2, sallyvua, -ccode1) %>%
     arrange(ccode1) %>%
     mutate(ccode2 = as.numeric(ccode2)) %>%
     left_join(here_it_is, .,
@@ -111,7 +111,7 @@ FPSIMASU <- foreach(
 
   sbusmatrix %>% as_tibble() %>%
     mutate(ccode1 = ccodes) %>%
-    gather(ccode2, sallybs, -ccode1) %>%
+    gather(ccode2, sallybus, -ccode1) %>%
     arrange(ccode1) %>%
     mutate(ccode2 = as.numeric(ccode2)) %>%
     left_join(here_it_is, .,
@@ -120,7 +120,7 @@ FPSIMASU <- foreach(
 
   sbuamatrix %>% as_tibble() %>%
     mutate(ccode1 = ccodes) %>%
-    gather(ccode2, sallyba, -ccode1) %>%
+    gather(ccode2, sallybua, -ccode1) %>%
     arrange(ccode1) %>%
     mutate(ccode2 = as.numeric(ccode2)) %>%
     left_join(here_it_is, .,
