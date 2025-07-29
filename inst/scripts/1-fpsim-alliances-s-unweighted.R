@@ -142,7 +142,7 @@ rm(my.cluster)
 qs_save(FPSIMASU, "docs/data/FPSIMASU.qs")
 
 
-sink(file = "1-fpsim-alliances-s-unweighted.log")
+sink(file = "inst/scripts/1-fpsim-alliances-s-unweighted.log")
 timestamp()
 tic.log()
 sink()
