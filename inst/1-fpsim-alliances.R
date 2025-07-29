@@ -244,12 +244,12 @@ FPSIMALLY <- foreach(
 
       ##------ Cohen's (1968) kappa ------##
 
-      kvscores <- psych::cohen.kappa(t(rbind(V[i,], V[j,]))) %>%
+      kvscores <- psych::cohen.kappa(t(rbind(V[i,], V[j,])), levels = 0:3) %>%
         broom::tidy() %>%
         filter(type == "weighted") %>%
         pull(estimate)
 
-      kbscores <- psych::cohen.kappa(t(rbind(B[i,], B[j,]))) %>%
+      kbscores <- psych::cohen.kappa(t(rbind(B[i,], B[j,])), levels = 0:1) %>%
         broom::tidy() %>%
         filter(type == "weighted") %>%
         pull(estimate)
