@@ -9,3 +9,7 @@ R CMD check done via `devtools::check()`, resulting in 0 errors, 0 warnings and 
 `devtools::spell_check()` results in a lot of typos, all of which are false positives.
 
 This is a new package of mine that I want as an initial development offering.
+
+## Feedback to CRAN upon initial rejection
+
+I forgot to add that cran-comments.md to .Rbuildignore. That's my oversight.
