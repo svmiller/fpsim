@@ -6,14 +6,13 @@ Authors@R: person("Steven", "Miller",
                   role = c("aut", "cre"),
                   comment = c(ORCID = "0000-0003-4072-6263"))
 Maintainer: Steven Miller <steve@svmiller.com>
-Description: These are tools that allow users to compute various measures of
-    similarity or association that one might see in the study of international
-    relations. These include measures like Signorino and Ritter's S 
-    (weighted/unweighted), Cohen's weighted kappa, and Scott's pi. These tools
-    offer the ability to generate such estimates of dyadic foreign policy
-    similarity for analyses in the study of international relations. They also
-    offer interested students the ability to learn how these estimates are
-    calculated.
+Description: Provides functions for calculating various measures of foreign 
+    policy similarity or association commonly used in the study of international 
+    relations. These include Signorino and Ritter's S statistic (weighted and 
+    unweighted), Cohen's weighted kappa, Scott's pi, and Kendall's tau-b. The 
+    package facilitates the generation of dyadic similarity scores for 
+    empirical analyses and can also serve as an educational resource for 
+    understanding how such measures are derived.
 License: GPL (>=2)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
