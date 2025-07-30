@@ -52,12 +52,12 @@ FPSIMASW <- foreach(
   B$ccode1 <- NULL
 
 
-  # s ([v]alued, [w]eighted, [s]quared)
-  svwsmatrix <- matrix(NA, nrow = n, ncol = n, dimnames = list(ccodes, ccodes))
+  ## s ([v]alued, [w]eighted, [s]quared)
+  #svwsmatrix <- matrix(NA, nrow = n, ncol = n, dimnames = list(ccodes, ccodes))
   # s ([v]alued, [w]eighted, [a]bsolute)
   svwamatrix <- matrix(NA, nrow = n, ncol = n, dimnames = list(ccodes, ccodes))
-  # s ([b]inary, [w]eighted, [s]quared)
-  sbwsmatrix <- matrix(NA, nrow = n, ncol = n, dimnames = list(ccodes, ccodes))
+  ## s ([b]inary, [w]eighted, [s]quared)
+  # sbwsmatrix <- matrix(NA, nrow = n, ncol = n, dimnames = list(ccodes, ccodes))
   # s ([b]inary, [w]eighted, [a]bsolute)
   sbwamatrix <- matrix(NA, nrow = n, ncol = n, dimnames = list(ccodes, ccodes))
 
@@ -72,9 +72,9 @@ FPSIMASW <- foreach(
       #sbusscores <- srs(B[i, ], B[j, ], data = "alliances", distances = "squared", ordered = FALSE)
       #sbuascores <- srs(B[i, ], B[j, ], data = "alliances", distances = "absolute", ordered = FALSE)
 
-      svwsscores <- srs(t(V[i, ]), t(V[j, ]), distances = 'squared', range = 3, weights = cincweights)
+      #svwsscores <- srs(t(V[i, ]), t(V[j, ]), distances = 'squared', range = 3, weights = cincweights)
       svwascores <- srs(t(V[i, ]), t(V[j, ]), distances = 'absolute', range = 3, weights = cincweights)
-      sbwsscores <- srs(t(B[i, ]), t(B[j, ]), distances = 'squared', range = 1, weights = cincweights)
+      #sbwsscores <- srs(t(B[i, ]), t(B[j, ]), distances = 'squared', range = 1, weights = cincweights)
       sbwascores <- srs(t(B[i, ]), t(B[j, ]), distances = 'absolute', range = 1, weights = cincweights)
 
 
@@ -84,14 +84,14 @@ FPSIMASW <- foreach(
       ##########################################
 
       # The s scores...
-      svwsmatrix[i, j] <- svwsscores
-      svwsmatrix[j, i] <- svwsscores  # symmetric
+      # svwsmatrix[i, j] <- svwsscores
+      # svwsmatrix[j, i] <- svwsscores  # symmetric
 
       svwamatrix[i, j] <- svwascores
       svwamatrix[j, i] <- svwascores  # symmetric
 
-      sbwsmatrix[i, j] <- sbwsscores
-      sbwsmatrix[j, i] <- sbwsscores  # symmetric
+      # sbwsmatrix[i, j] <- sbwsscores
+      # sbwsmatrix[j, i] <- sbwsscores  # symmetric
 
       sbwamatrix[i, j] <- sbwascores
       sbwamatrix[j, i] <- sbwascores  # symmetric
@@ -99,31 +99,31 @@ FPSIMASW <- foreach(
     }
   }
 
-  svwsmatrix %>% as_tibble() %>%
-    mutate(ccode1 = ccodes) %>%
-    gather(ccode2, sallyvws, -ccode1) %>%
-    arrange(ccode1) %>%
-    mutate(ccode2 = as.numeric(ccode2)) %>%
-    mutate(year = y) %>%
-    select(ccode1, ccode2, year, everything()) -> here_it_is
-
   svwamatrix %>% as_tibble() %>%
     mutate(ccode1 = ccodes) %>%
     gather(ccode2, sallyvwa, -ccode1) %>%
     arrange(ccode1) %>%
     mutate(ccode2 = as.numeric(ccode2)) %>%
-    left_join(here_it_is, .,
-              by = c("ccode1" = "ccode1",
-                     "ccode2" = "ccode2")) -> here_it_is
+    mutate(year = y) %>%
+    select(ccode1, ccode2, year, everything()) -> here_it_is
 
-  sbwsmatrix %>% as_tibble() %>%
-    mutate(ccode1 = ccodes) %>%
-    gather(ccode2, sallybws, -ccode1) %>%
-    arrange(ccode1) %>%
-    mutate(ccode2 = as.numeric(ccode2)) %>%
-    left_join(here_it_is, .,
-              by = c("ccode1" = "ccode1",
-                     "ccode2" = "ccode2")) -> here_it_is
+  # svwamatrix %>% as_tibble() %>%
+  #   mutate(ccode1 = ccodes) %>%
+  #   gather(ccode2, sallyvwa, -ccode1) %>%
+  #   arrange(ccode1) %>%
+  #   mutate(ccode2 = as.numeric(ccode2)) %>%
+  #   left_join(here_it_is, .,
+  #             by = c("ccode1" = "ccode1",
+  #                    "ccode2" = "ccode2")) -> here_it_is
+  #
+  # sbwsmatrix %>% as_tibble() %>%
+  #   mutate(ccode1 = ccodes) %>%
+  #   gather(ccode2, sallybws, -ccode1) %>%
+  #   arrange(ccode1) %>%
+  #   mutate(ccode2 = as.numeric(ccode2)) %>%
+  #   left_join(here_it_is, .,
+  #             by = c("ccode1" = "ccode1",
+  #                    "ccode2" = "ccode2")) -> here_it_is
 
   sbwamatrix %>% as_tibble() %>%
     mutate(ccode1 = ccodes) %>%
