@@ -1,0 +1,36 @@
+---
+output: github_document
+---
+
+# `fpsim`: Compute Measures of Foreign Policy Similarity/Agreement
+
+```{r echo=FALSE, results="hide", message=FALSE}
+library("badger")
+```
+
+```{r, echo = FALSE, results='asis'}
+cat(
+	badge_cran_release("fpsim", "purple"),
+	badge_cran_download("fpsim", "grand-total", "purple"),
+	badge_cran_download("fpsim", "last-month", "purple"),
+	badge_cran_download("fpsim", "last-week", "purple")
+)
+```
+
+<img src="http://svmiller.com/images/fpsim-hexlogo.png" alt="My fpsim hexlogo" align="right" width="200" style="padding: 0 15px; float: right;"/>
+
+`{fpsim}` offers some tools for calculating some common measures of dyadic foreign policy similarity, like Cohen's weighted kappa, Signorino and Ritter's s, and Scott's pi. The audience this package intends to reach is an audience interested in international relations and questions of how much two countries have foreign policy priorities that are similar or dissimilar to each other. However, the metrics borrow heavily from psychology and some of their fundamental methodological questions in psychometrics. How can we measure the extent to which two individuals agree or disagree? Are associated with each other or are disassociated from each other? Are close or far apart? These statistics from the domain of psychometrics are placed on measures of dyadic foreign policy similarity, either in alliance portfolios or votes in the United Nations General Assembly. The tools offered here can compute such statistics on a case-by-case basis or serve as a means for students to learn how they are calculated. External data of the universe of measures of dyadic foreign policy similarity will be available on demand.
+
+## Installation
+
+Versions of the package on CRAN can be downloaded like any other package.
+
+```r
+install.packages("fpsim")
+```
+
+You can also install the development version of `{fpsim}` from Github via the `{devtools}` package. I suppose using the `{remotes}` package would work as well.
+
+```r
+devtools::install_github("svmiller/fpsim")
+```

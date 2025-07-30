@@ -40,7 +40,7 @@
 #'
 #' @examples
 #'
-#' cohenk(gmyrus14$gmy, gmyrus14$rus, levels = 0:3) # levels argument necessary
+#' cohenk(gmyrus14$gmy, gmyrus14$rus, levels = 0:3) # with levels argument
 #' cohenk(usamex46$vote1, usamex46$vote2) # levels argument not necessary here.
 #'
 #' @references

@@ -3,4 +3,5 @@
 export(cohenk)
 export(spi)
 export(srs)
+export(taub)
 importFrom(stats,complete.cases)

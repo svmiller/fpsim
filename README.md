@@ -1,57 +1,43 @@
-# Measures of Dyadic Foreign Policy Similarity
 
-Let me take a big, big step back and ask what kind of data should be included
-as a measure of foreign policy similarity for people to use. Before answering
-this, it should be pretty clear we're in agreement about the sources of the
-data.
+# `fpsim`: Compute Measures of Foreign Policy Similarity/Agreement
 
-1) Alliances (ATOP, for coverage and other reasons)
-2) UN voting data
+[![](https://www.r-pkg.org/badges/version/fpsim?color=purple)](https://cran.r-project.org/package=fpsim)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/fpsim?color=purple)](https://cran.r-project.org/package=fpsim)
+[![](http://cranlogs.r-pkg.org/badges/last-month/fpsim?color=purple)](https://cran.r-project.org/package=fpsim)
+[![](http://cranlogs.r-pkg.org/badges/last-week/fpsim?color=purple)](https://cran.r-project.org/package=fpsim)
 
-Now, there are different measures of foreign policy similarity to consider:
+<img src="http://svmiller.com/images/fpsim-hexlogo.png" alt="My fpsim hexlogo" align="right" width="200" style="padding: 0 15px; float: right;"/>
 
-- Kendall's (1938) Tau-b
-- Scott's (1955) pi
-- Cohen's (1960) kappa
-- Signorino and Ritter's (1999) S
-- ideal point distances (applicable to UN voting only)
+`{fpsim}` offers some tools for calculating some common measures of
+dyadic foreign policy similarity, like Cohen’s weighted kappa, Signorino
+and Ritter’s s, and Scott’s pi. The audience this package intends to
+reach is an audience interested in international relations and questions
+of how much two countries have foreign policy priorities that are
+similar or dissimilar to each other. However, the metrics borrow heavily
+from psychology and some of their fundamental methodological questions
+in psychometrics. How can we measure the extent to which two individuals
+agree or disagree? Are associated with each other or are disassociated
+from each other? Are close or far apart? These statistics from the
+domain of psychometrics are placed on measures of dyadic foreign policy
+similarity, either in alliance portfolios or votes in the United Nations
+General Assembly. The tools offered here can compute such statistics on
+a case-by-case basis or serve as a means for students to learn how they
+are calculated. External data of the universe of measures of dyadic
+foreign policy similarity will be available on demand.
 
-Of these measures, a few things to further belabor:
+## Installation
 
-- Should alliances be "valued" or binary? I am a strong proponent of binary
-  but the valued one has a use that's almost ritualized.
-- For S: should you weight the S measure by capabilities or not? If you do
-  (and I don't think you at all should), you lose a few years based on the
-  temporal domain of the capabilities data (along with any missing data
-  weirdness). You also have this weird issue where the capabilities themselves
-  should already be proportional, by year, and yet the capabilities offered do
-  not sum to 1.
-  Also for S: should you use squared distances or absolute value distances?
-  Per `{peacesciencer}` codebook: "The choice of squared versus absolute
-  distances is arbitrary. Users probably do not think about the differences,
-  or know about the differences. S was usually calculated with absolute
-  differences in software packages, though this was never usually belabored to
-  the user. Comparability with S might be an argument in favor of absolute
-  distance as a default, but keep in mind that squared distances are much more
-  commonly used in most other types of distance and association metrics."
+Versions of the package on CRAN can be downloaded like any other
+package.
 
-All things considered, I think this means I need to create the following:
+``` r
+install.packages("fpsim")
+```
 
-Alliances:
+You can also install the development version of `{fpsim}` from Github
+via the `{devtools}` package. I suppose using the `{remotes}` package
+would work as well.
 
-- Tau-b (valued, binary)
-- S (val-unweigh-sq, val-unweigh-abs, bin-unweigh-sq, bin-unweigh-abs)
-- Scott's pi (valued, binary)
-- Cohen's kappa (valued, binary)
-
-UN voting (all valued):
-
-- Tau-b
-- S (unweigh-sq, unweigh-abs)
-- Scott's pi
-- Cohen's kappa
-- ideal point distance
-
-Ideal point distance is already provided for me (thank God), but that sums to
-16(!) different metrics to calculate. I'm just going to ignore the question of
-weighting versus not-weighting.
+``` r
+devtools::install_github("svmiller/fpsim")
+```

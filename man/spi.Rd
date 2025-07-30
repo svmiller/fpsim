@@ -42,7 +42,7 @@ won't.
 }
 \examples{
 
-spi(gmyrus14$gmy, gmyrus14$rus, levels = 0:3) # levels argument necessary
+spi(gmyrus14$gmy, gmyrus14$rus, levels = 0:3) # with levels argument
 spi(usamex46$vote1, usamex46$vote2) # levels argument not necessary here.
 
 }
