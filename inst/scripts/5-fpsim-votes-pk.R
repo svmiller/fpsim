@@ -61,7 +61,8 @@ FPSIMVPK <- foreach(
   full_join(KV, PV, by=c("dyad" = "dyad")) %>%
     separate(dyad, c("ccode1", "ccode2")) %>%
     mutate(ccode1 = as.numeric(ccode1),
-           ccode2 = as.numeric(ccode2)) -> here_it_is
+           ccode2 = as.numeric(ccode2)) %>%
+    mutate(year = y)  -> here_it_is
 
 
   print(paste("Ending", y, "on", Sys.time()))
