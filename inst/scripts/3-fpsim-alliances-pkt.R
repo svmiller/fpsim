@@ -21,7 +21,7 @@ ATOPDDY <- qs_read("data-raw/atop/ATOPDDY.qs")
 
 
 tic()
-FPSIMAPK <- foreach(
+FPSIMAPKT <- foreach(
   y = startyear:endyear
 ) %dopar% {
 
@@ -54,6 +54,8 @@ FPSIMAPK <- foreach(
   kvmatrix <- matrix(NA, nrow = n, ncol = n, dimnames = list(ccodes, ccodes))
   # Cohen's kappa ([b]inary)
   kbmatrix <- matrix(NA, nrow = n, ncol = n, dimnames = list(ccodes, ccodes))
+  # tau-b (valued, not that you should use it)
+  taubmatrix <- matrix(NA, nrow = n, ncol = n, dimnames = list(ccodes, ccodes))
 
 
   for (i in 1:n) {
@@ -66,6 +68,10 @@ FPSIMAPK <- foreach(
       ##------ Cohen's (1968) kappa ------##
       kvscores <- cohenk(t(V[i, ]), t(V[j, ]), levels = 0:3)
       kbscores <- cohenk(t(B[i, ]), t(B[j, ]), levels = 0:1)
+
+      ##------ Kendall's (1938) tau-b ------##
+      ttt <- as.data.frame(t(rbind(V[i,], V[j,])))
+      taubscores <- cor(ttt$V1, ttt$V2, method = 'kendall')
 
 
 
@@ -89,6 +95,10 @@ FPSIMAPK <- foreach(
 
       kbmatrix[i, j] <- kbscores
       kbmatrix[j, i] <- kbscores
+
+      # Tau-b, not that you should...
+      taubmatrix[i, j] <- taubscores
+      taubmatrix[j, i] <- taubscores
 
     }
   }
@@ -128,6 +138,15 @@ FPSIMAPK <- foreach(
               by = c("ccode1" = "ccode1",
                      "ccode2" = "ccode2")) -> here_it_is
 
+  taubmatrix %>% as_tibble() %>%
+    mutate(ccode1 = ccodes) %>%
+    gather(ccode2, taub, -ccode1) %>%
+    arrange(ccode1) %>%
+    mutate(ccode2 = as.numeric(ccode2)) %>%
+    left_join(here_it_is, .,
+              by = c("ccode1" = "ccode1",
+                     "ccode2" = "ccode2")) -> here_it_is
+
   print(paste("Ending", y, "on", Sys.time()))
   # ^ definitely don't end with this... Steve... okay...
 
@@ -140,10 +159,10 @@ parallel::stopCluster(cl = my.cluster) # close our clusters
 rm(my.cluster)
 
 
-qs_save(FPSIMAPK, "docs/data/FPSIMAPK.qs")
+qs_save(FPSIMAPKT, "docs/data/FPSIMAPKT.qs")
 
 
-sink(file = "inst/scripts/3-fpsim-alliances-pk.log")
+sink(file = "inst/scripts/3-fpsim-alliances-pkt.log")
 timestamp()
 tic.log()
 sink()
