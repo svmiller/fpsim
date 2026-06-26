@@ -4,3 +4,24 @@ template:
   bootstrap: 5
   bootswatch: lumen
 
+navbar:
+  structure:
+    left:  [home, reference, examples, news]
+    right: [search, github]
+  components:
+    reference:
+      text: "Templates"
+      href: "reference/index.html"
+    examples:
+      text: "Data Downloads"
+      menu:
+      - text: "Codebook/Manifest"
+        href: https://svmiller.com/fpsim/data/MANIFEST
+      - text: "Signorino and Ritter's S for Alliance Data (unweighted)"
+        href: https://svmiller.com/fpsim/data/FPSIMASU.rds
+      - text: "Signorino and Ritter's S for Alliance Data (weighted)"
+        href: https://svmiller.com/fpsim/data/FPSIMASW.rds
+      - text: "Scott's pi, Cohen's kappa, and Kendall's tau-b for alliance data"
+        href: https://svmiller.com/fpsim/data/FPSIMAPKT.rds
+      - text: "Scott's pi and Cohen's kappa for UN voting data"
+        href: https://svmiller.com/fpsim/data/FPSIMVPK.rds
