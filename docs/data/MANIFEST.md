@@ -11,8 +11,40 @@ all UN decisions from 1946 to 2022. Note that these four letters always follow
 the first letter of the variable (which always communicates what the type of
 measure is).
 
-`u` vs `w`: These are unique to Signorino and Ritter's S measure, which I 
-generate only for the alliance data. `u` means the measure of S is unweighted 
+`u` vs. `w`: These are unique to Signorino and Ritter's S measure, which I 
+generate only for the alliance data. `u` means the measure of S is unweighted by
+anything and that each alliance tie is equally important in a given dyadic pairing.
+`w` means the data are weighted by the target state's CINC score in a dyadic 
+pairing. The documentation files for how to generate Signorino and Ritter's S
+offer several comments why I think this is generally ill-advised, no matter how
+common this practice was. Importantly, the CINC data are not as current as the 
+alliance data. Weighted measures of Signorino and Ritter's S have right bound of
+2016.
+
+`b` vs. `v`: This concerns measures of foreign policy similarity using alliance
+ties. Standard practice for the longest time suggested you could construct an
+ordinal measure of an alliance tie on a scale of 0 to 3. 0 would mean no alliance
+at all. 1 would be an entente. 2 would be neutrality and/or a non-aggression pact.
+3 would be a defense pact. In this reading, the alliance data are fundamentally
+"valued" (`v`). Discussion on my blog and on `{peacesciencer}`'s  documentation 
+underscore why I've never liked this convention and think it drastically misreads 
+what the alliance data actually communicate, but this was the convention I 
+remember learning. If you elect to use the alliance data for a measure of
+foreign policy similarity (i.e. you need the pre-WW2 reach), I would strongly
+encourage you to use the measure that treats the alliance as strictly binary 
+(`b`) (where 0 = no alliance contract and 1 = some form of an alliance contract).
+Note that the UN voting data are always valued, where 1 = nay, 2 = abstain, 3 =
+yea.
+
+`a` vs. `s`: This only concerns Signorino and Ritter's S because theirs is the
+only measure of a conceptual "distance" as opposed to a chance-corrected
+agreement. `a` means the distances are "absolute" distances where `s` means the
+distances are squared. I forget off the top of my head whether Signorino and 
+Ritter's S measure was intended to be done with absolute distances or whether
+software packages of the time that included this measure (i.e. NewGene) only 
+offered absolute distances and never belabored this choice to the user. The 
+choice is fundamentally arbitrary though squared distances are much more commonly
+used in most other types of distance and association metrics.
 
 # FPSIMASU: Signorino and Ritter's (1999) S for alliance data, unweighted
 
