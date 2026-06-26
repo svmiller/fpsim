@@ -7,8 +7,8 @@ FPSIMASU: Signorino and Ritter's (1999) s for alliance data, unweighted
 
 FPSIMASW: Signorino and Ritter's (1999) s for alliance data, weighted
 
-- `sallyvua`: Signorino and Ritter's (s) for alliance (ally) data -- (v)alued, (w)eighted, (a)bsolute distances
-- `sallybua`: Signorino and Ritter's (s) for alliance (ally) data -- (b)inary, (w)eighted, (a)bsolute distances
+- `sallyvwa`: Signorino and Ritter's (s) for alliance (ally) data -- (v)alued, (w)eighted, (a)bsolute distances
+- `sallybwa`: Signorino and Ritter's (s) for alliance (ally) data -- (b)inary, (w)eighted, (a)bsolute distances
 
 FPSIMAPKT: Scott's pi, Cohen's kappa, and Kendall's tau-b for alliance data
 
