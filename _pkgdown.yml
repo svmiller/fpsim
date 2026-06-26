@@ -16,7 +16,7 @@ navbar:
       text: "Data Downloads"
       menu:
       - text: "Codebook/Manifest"
-        href: https://svmiller.com/fpsim/data/MANIFEST
+        href: https://svmiller.com/fpsim/data/MANIFEST.md
       - text: "Signorino and Ritter's S for Alliance Data (unweighted)"
         href: https://svmiller.com/fpsim/data/FPSIMASU.rds
       - text: "Signorino and Ritter's S for Alliance Data (weighted)"

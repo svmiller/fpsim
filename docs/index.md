@@ -1,0 +1,44 @@
+# `fpsim`: Compute Measures of Foreign Policy Similarity/Agreement
+
+[![](https://www.r-pkg.org/badges/version/fpsim?color=purple)](https://cran.r-project.org/package=fpsim)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/fpsim?color=purple)](https://cran.r-project.org/package=fpsim)
+[![](http://cranlogs.r-pkg.org/badges/last-month/fpsim?color=purple)](https://cran.r-project.org/package=fpsim)
+[![](http://cranlogs.r-pkg.org/badges/last-week/fpsim?color=purple)](https://cran.r-project.org/package=fpsim)
+
+![My fpsim hexlogo](http://svmiller.com/images/fpsim-hexlogo.png)
+
+`{fpsim}` offers some tools for calculating some common measures of
+dyadic foreign policy similarity, like Cohen’s weighted kappa, Signorino
+and Ritter’s s, and Scott’s pi. The audience this package intends to
+reach is an audience interested in international relations and questions
+of how much two countries have foreign policy priorities that are
+similar or dissimilar to each other. However, the metrics borrow heavily
+from psychology and some of their fundamental methodological questions
+in psychometrics. How can we measure the extent to which two individuals
+agree or disagree? Are associated with each other or are disassociated
+from each other? Are close or far apart? These statistics from the
+domain of psychometrics are placed on measures of dyadic foreign policy
+similarity, either in alliance portfolios or votes in the United Nations
+General Assembly. The tools offered here can compute such statistics on
+a case-by-case basis or serve as a means for students to learn how they
+are calculated. External data of the universe of measures of dyadic
+foreign policy similarity will be available on demand.
+
+## Installation
+
+Versions of the package on CRAN can be downloaded like any other
+package.
+
+``` r
+
+install.packages("fpsim")
+```
+
+You can also install the development version of `{fpsim}` from Github
+via the [devtools](https://devtools.r-lib.org/) package. I suppose using
+the [remotes](https://remotes.r-lib.org) package would work as well.
+
+``` r
+
+devtools::install_github("svmiller/fpsim")
+```
