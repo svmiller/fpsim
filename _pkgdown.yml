@@ -10,7 +10,7 @@ navbar:
     right: [search, github]
   components:
     reference:
-      text: "Templates"
+      text: "Reference"
       href: "reference/index.html"
     examples:
       text: "Data Downloads"
