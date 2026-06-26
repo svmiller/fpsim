@@ -21,4 +21,4 @@ FPSIMAPKT: Scott's pi, Cohen's kappa, and Kendall's tau-b for alliance data
 FPSIMVPK: Scott's pi and Cohen's kappa for UN voting data
 
 - `kvotev`: Cohen's (k)appa for UN voting (vote) data -- (v)alued
-- `pvotev`: Scott's (p)appa for UN voting (vote) data -- (v)alued
+- `pvotev`: Scott's (p)i for UN voting (vote) data -- (v)alued
