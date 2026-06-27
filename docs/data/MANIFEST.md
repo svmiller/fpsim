@@ -18,8 +18,8 @@ anything and that each alliance tie is equally important in a given dyadic pairi
 pairing. The documentation files for how to generate Signorino and Ritter's S
 offer several comments why I think this is generally ill-advised, no matter how
 common this practice was. Importantly, the CINC data are not as current as the 
-alliance data. Weighted measures of Signorino and Ritter's S have right bound of
-2016.
+alliance data. Weighted measures of Signorino and Ritter's S have a right bound 
+of 2016.
 
 `b` vs. `v`: This concerns measures of foreign policy similarity using alliance
 ties. Standard practice for the longest time suggested you could construct an
