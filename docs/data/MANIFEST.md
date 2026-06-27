@@ -41,7 +41,7 @@ only measure of a conceptual "distance" as opposed to a chance-corrected
 agreement. `a` means the distances are "absolute" distances where `s` means the
 distances are squared. I forget off the top of my head whether Signorino and 
 Ritter's S measure was intended to be done with absolute distances or whether
-software packages of the time that included this measure (i.e. NewGene) only 
+software packages of the time that included this measure (i.e. EUGene) only 
 offered absolute distances and never belabored this choice to the user. The 
 choice is fundamentally arbitrary though squared distances are much more commonly
 used in most other types of distance and association metrics.
