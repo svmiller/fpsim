@@ -53,6 +53,11 @@ FPSIMVPK <- foreach(
     enframe(., name = "dyad", value = "pvotev") %>%
     unnest(pvotev) -> PV
 
+  yearsplits %>%
+    map(~taub(.$vote1, .$vote2)) %>%
+    enframe(., name = "dyad", value = "tvotev") %>%
+    unnest(tvotev) -> TV
+
   # yearsplits %>%
   #   map(~cor(.$vote1, .$vote2, method = 'kendall'))
 
@@ -63,6 +68,19 @@ FPSIMVPK <- foreach(
     mutate(ccode1 = as.numeric(ccode1),
            ccode2 = as.numeric(ccode2)) %>%
     mutate(year = y)  -> here_it_is
+
+
+  TV %>% separate(dyad, c("ccode1", "ccode2")) %>%
+    mutate(ccode1 = as.numeric(ccode1),
+           ccode2 = as.numeric(ccode2)) %>%
+    mutate(year = y) %>%
+    left_join(here_it_is, .,
+              by = c("ccode1" = "ccode1",
+                     "ccode2" = "ccode2",
+                     "year" = "year")) -> here_it_is
+
+  # here_it_is %>%
+  #   left_join(., TV) -> here_it_is
 
 
   print(paste("Ending", y, "on", Sys.time()))
