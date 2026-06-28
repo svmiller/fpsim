@@ -78,6 +78,7 @@ cohenk <- function(x1, x2, w_exp = 2, levels = NULL) {
 
   tab <- table(factor(x1, levels = use_these_levels),
                factor(x2, levels = use_these_levels))
+
   o <- prop.table(tab)
 
   rmarg <- rowSums(o)
@@ -88,7 +89,7 @@ cohenk <- function(x1, x2, w_exp = 2, levels = NULL) {
   rng <- max(use_these_levels) - min(use_these_levels)
 
   w <- outer(use_these_levels, use_these_levels, function(i, j) {
-    d <- abs(i - j) / rng
+    d <- abs(i - j)/rng
     d <- d^w_exp
   })
 
