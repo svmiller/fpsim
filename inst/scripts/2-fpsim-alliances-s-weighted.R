@@ -14,8 +14,8 @@ doParallel::registerDoParallel(cl = half_cores)
 foreach::getDoParRegistered()
 
 # setting this up here for debugging purposes
-startyear = 1816; endyear = 2016
-# Should've remembered this the first time around, but cinc runs only until 2016.
+startyear = 1816; endyear = 2018
+# CINC now exceeds the ATOP right bound.
 
 ATOPDDY <- qs_read("data-raw/atop/ATOPDDY.qs")
 
@@ -147,7 +147,7 @@ rm(my.cluster)
 
 
 qs_save(FPSIMASW, "docs/data/FPSIMASW.qs")
-
+saveRDS(FPSIMASW, "docs/data/FPSIMASW.rds")
 
 sink(file = "inst/scripts/2-fpsim-alliances-s-weighted.log")
 timestamp()

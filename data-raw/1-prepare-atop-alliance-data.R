@@ -82,8 +82,10 @@ DDYV %>%
   bind_rows(DDYV, .) %>%
   arrange(ccode1, year,  ccode2) -> DDYV
 
+NMC <- read_csv("~/Koofr/data/cow/nmc/7.0/NMC-70-abridged.csv")
+
 DDYV %>%
-  left_join(., peacesciencer::cow_nmc %>% select(ccode, year, cinc) %>% rename(ccode2 = ccode)) %>%
+  left_join(., NMC %>% select(ccode, year, cinc) %>% rename(ccode2 = ccode)) %>%
   mutate(binatop = ifelse(ordatop >= 1, 1, 0)) %>%
   select(ccode1:year, cinc, ordatop, binatop) -> ATOPDDY
 
