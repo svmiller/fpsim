@@ -1,6 +1,6 @@
 Package: fpsim
 Title: Compute Measures of Foreign Policy Similarity/Agreement
-Version: 0.1.0
+Version: 0.1.9
 Authors@R: person("Steven", "Miller",
                   email = "steve@svmiller.com", 
                   role = c("aut", "cre"),
@@ -9,10 +9,11 @@ Maintainer: Steven Miller <steve@svmiller.com>
 Description: Provides functions for calculating various measures of foreign 
     policy similarity or association commonly used in the study of international 
     relations. These include Signorino and Ritter's S statistic (weighted and 
-    unweighted), Cohen's weighted kappa, Scott's pi, and Kendall's tau-b. The 
-    package facilitates the generation of dyadic similarity scores for 
-    empirical analyses and can also serve as an educational resource for 
-    understanding how such measures are derived.
+    unweighted), Benati and Capurri's chance-corrected S statistic (A), Cohen's 
+    weighted kappa, Scott's pi, and Kendall's tau-b. The package facilitates 
+    the generation of dyadic similarity scores for empirical analyses and can 
+    also serve as an educational resource for understanding how such measures 
+    are calculated.
 License: GPL (>=2)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
