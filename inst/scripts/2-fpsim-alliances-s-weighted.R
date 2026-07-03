@@ -146,6 +146,10 @@ parallel::stopCluster(cl = my.cluster) # close our clusters
 rm(my.cluster)
 
 
+FPSIMASW %>%
+  bind_rows() %>%
+  filter(ccode1 != ccode2) -> FPSIMASW
+
 qs_save(FPSIMASW, "docs/data/FPSIMASW.qs")
 saveRDS(FPSIMASW, "docs/data/FPSIMASW.rds")
 

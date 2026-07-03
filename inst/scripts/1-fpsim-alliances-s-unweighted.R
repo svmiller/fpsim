@@ -138,9 +138,12 @@ toc(log = TRUE) # and, time
 parallel::stopCluster(cl = my.cluster) # close our clusters
 rm(my.cluster)
 
+FPSIMASU %>%
+  bind_rows() %>%
+  filter(ccode1 != ccode2) -> FPSIMASU
 
 qs_save(FPSIMASU, "docs/data/FPSIMASU.qs")
-
+saveRDS(FPSIMASU, "docs/data/FPSIMASU.rds")
 
 sink(file = "inst/scripts/1-fpsim-alliances-s-unweighted.log")
 timestamp()

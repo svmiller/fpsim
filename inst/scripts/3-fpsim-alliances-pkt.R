@@ -159,7 +159,13 @@ parallel::stopCluster(cl = my.cluster) # close our clusters
 rm(my.cluster)
 
 
+FPSIMAPKT %>%
+  bind_rows() %>%
+  filter(ccode1 != ccode2) -> FPSIMAPKT
+
 qs_save(FPSIMAPKT, "docs/data/FPSIMAPKT.qs")
+saveRDS(FPSIMAPKT, "docs/data/FPSIMAPKT.rds")
+
 
 
 sink(file = "inst/scripts/3-fpsim-alliances-pkt.log")

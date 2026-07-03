@@ -95,7 +95,14 @@ parallel::stopCluster(cl = my.cluster) # close our clusters
 rm(my.cluster)
 
 
+#qs_save(FPSIMVPK, "docs/data/FPSIMVPK.qs")
+
+FPSIMVPK %>%
+  bind_rows() %>%
+  filter(ccode1 != ccode2) -> FPSIMVPK
+
 qs_save(FPSIMVPK, "docs/data/FPSIMVPK.qs")
+saveRDS(FPSIMVPK, "docs/data/FPSIMVPK.rds")
 
 
 sink(file = "inst/scripts/5-fpsim-votes-pk.log")
