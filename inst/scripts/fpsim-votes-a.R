@@ -15,7 +15,8 @@ doParallel::registerDoParallel(cl = half_cores)
 foreach::getDoParRegistered()
 
 tic()
-FPSIMVPK <- foreach(
+FPSIMVA <- foreach(
+  #y = c(1946:1955) # debugging here...
   y = c(1946:1963, 1965:2022)
 ) %dopar% {
 
@@ -43,44 +44,22 @@ FPSIMVPK <- foreach(
   UNDDY %>%
     split(., paste(.$ccode1, .$ccode2, sep = "_")) -> yearsplits
 
-  yearsplits %>%
-    map(~cohenk(.$vote1, .$vote2, levels = 1:3)) %>%
-    enframe(., name = "dyad", value = "kvotev") %>%
-    unnest(kvotev) -> KV
 
   yearsplits %>%
-    map(~spi(.$vote1, .$vote2, levels = 1:3)) %>%
-    enframe(., name = "dyad", value = "pvotev") %>%
-    unnest(pvotev) -> PV
+    map(~bcai(.$vote1, .$vote2, distances = 'absolute', levels = 1:3)) %>%
+    enframe(., name = "dyad", value = "avoteva") %>%
+    unnest(avoteva) -> AVA
 
-  # yearsplits %>%
-  #   map(~taub(.$vote1, .$vote2)) %>%
-  #   enframe(., name = "dyad", value = "tvotev") %>%
-  #   unnest(tvotev) -> TV
+  yearsplits %>%
+    map(~bcai(.$vote1, .$vote2, distances = 'squared', levels = 1:3)) %>%
+    enframe(., name = "dyad", value = "avotevs") %>%
+    unnest(avotevs) -> AVS
 
-  # yearsplits %>%
-  #   map(~cor(.$vote1, .$vote2, method = 'kendall'))
-
-
-
-  full_join(KV, PV, by=c("dyad" = "dyad")) %>%
+  full_join(AVA, AVS, by=c("dyad" = "dyad")) %>%
     separate(dyad, c("ccode1", "ccode2")) %>%
     mutate(ccode1 = as.numeric(ccode1),
            ccode2 = as.numeric(ccode2)) %>%
     mutate(year = y)  -> here_it_is
-
-
-  # TV %>% separate(dyad, c("ccode1", "ccode2")) %>%
-  #   mutate(ccode1 = as.numeric(ccode1),
-  #          ccode2 = as.numeric(ccode2)) %>%
-  #   mutate(year = y) %>%
-  #   left_join(here_it_is, .,
-  #             by = c("ccode1" = "ccode1",
-  #                    "ccode2" = "ccode2",
-  #                    "year" = "year")) -> here_it_is
-
-  # here_it_is %>%
-  #   left_join(., TV) -> here_it_is
 
 
   print(paste("Ending", y, "on", Sys.time()))
@@ -97,15 +76,15 @@ rm(my.cluster)
 
 #qs_save(FPSIMVPK, "docs/data/FPSIMVPK.qs")
 
-FPSIMVPK %>%
+FPSIMVA %>%
   bind_rows() %>%
-  filter(ccode1 != ccode2) -> FPSIMVPK
+  filter(ccode1 != ccode2) -> FPSIMVA
 
-qs_save(FPSIMVPK, "docs/data/fpsim-votes-pk.qs")
-saveRDS(FPSIMVPK, "docs/data/fpsim-votes-pk.rds")
+qs_save(FPSIMVPK, "docs/data/fpsim-votes-a.qs")
+saveRDS(FPSIMVPK, "docs/data/fpsim-votes-a.rds")
 
 
-sink(file = "inst/scripts/fpsim-votes-pk.log")
+sink(file = "inst/scripts/fpsim-votes-a.log")
 timestamp()
 tic.log()
 sink()
