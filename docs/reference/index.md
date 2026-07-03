@@ -3,7 +3,7 @@
 ## All functions
 
 - [`bcai()`](https://svmiller.com/reference/bcai.md) : Calculate Benati
-  and Capurri's (2026) alignment index
+  and Capurri's (2026) alignment index (A)
 - [`bencapex`](https://svmiller.com/reference/bencapex.md) : A Worked
   Example from Benati and Capurri (2026)
 - [`cohenk()`](https://svmiller.com/reference/cohenk.md) : Calculate
