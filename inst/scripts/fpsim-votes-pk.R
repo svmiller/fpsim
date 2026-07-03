@@ -101,11 +101,11 @@ FPSIMVPK %>%
   bind_rows() %>%
   filter(ccode1 != ccode2) -> FPSIMVPK
 
-qs_save(FPSIMVPK, "docs/data/FPSIMVPK.qs")
-saveRDS(FPSIMVPK, "docs/data/FPSIMVPK.rds")
+qs_save(FPSIMVPK, "docs/data/fpsim-votes-pk.qs")
+saveRDS(FPSIMVPK, "docs/data/fpsim-votes-pk.rds")
 
 
-sink(file = "inst/scripts/5-fpsim-votes-pk.log")
+sink(file = "inst/scripts/fpsim-votes-pk.log")
 timestamp()
 tic.log()
 sink()
