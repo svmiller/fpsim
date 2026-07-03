@@ -142,10 +142,10 @@ FPSIMASU %>%
   bind_rows() %>%
   filter(ccode1 != ccode2) -> FPSIMASU
 
-qs_save(FPSIMASU, "docs/data/FPSIMASU.qs")
-saveRDS(FPSIMASU, "docs/data/FPSIMASU.rds")
+qs_save(FPSIMASU, "docs/data/fpsim-alliances-s-unweighted.qs")
+saveRDS(FPSIMASU, "docs/data/fpsim-alliances-s-unweighted.rds")
 
-sink(file = "inst/scripts/1-fpsim-alliances-s-unweighted.log")
+sink(file = "inst/scripts/fpsim-alliances-s-unweighted.log")
 timestamp()
 tic.log()
 sink()

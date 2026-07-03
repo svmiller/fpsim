@@ -21,7 +21,7 @@ ATOPDDY <- qs_read("data-raw/atop/ATOPDDY.qs")
 
 
 tic()
-FPSIMAPKT <- foreach(
+FPSIMAPK <- foreach(
   y = startyear:endyear
 ) %dopar% {
 
@@ -55,7 +55,7 @@ FPSIMAPKT <- foreach(
   # Cohen's kappa ([b]inary)
   kbmatrix <- matrix(NA, nrow = n, ncol = n, dimnames = list(ccodes, ccodes))
   # tau-b (valued, not that you should use it)
-  taubmatrix <- matrix(NA, nrow = n, ncol = n, dimnames = list(ccodes, ccodes))
+  #taubmatrix <- matrix(NA, nrow = n, ncol = n, dimnames = list(ccodes, ccodes))
 
 
   for (i in 1:n) {
@@ -70,8 +70,8 @@ FPSIMAPKT <- foreach(
       kbscores <- cohenk(t(B[i, ]), t(B[j, ]), levels = 0:1)
 
       ##------ Kendall's (1938) tau-b ------##
-      ttt <- as.data.frame(t(rbind(V[i,], V[j,])))
-      taubscores <- cor(ttt$V1, ttt$V2, method = 'kendall')
+      #ttt <- as.data.frame(t(rbind(V[i,], V[j,])))
+      #taubscores <- cor(ttt$V1, ttt$V2, method = 'kendall')
 
 
 
@@ -97,8 +97,8 @@ FPSIMAPKT <- foreach(
       kbmatrix[j, i] <- kbscores
 
       # Tau-b, not that you should...
-      taubmatrix[i, j] <- taubscores
-      taubmatrix[j, i] <- taubscores
+      #taubmatrix[i, j] <- taubscores
+      #taubmatrix[j, i] <- taubscores
 
     }
   }
@@ -138,14 +138,14 @@ FPSIMAPKT <- foreach(
               by = c("ccode1" = "ccode1",
                      "ccode2" = "ccode2")) -> here_it_is
 
-  taubmatrix %>% as_tibble() %>%
-    mutate(ccode1 = ccodes) %>%
-    gather(ccode2, taub, -ccode1) %>%
-    arrange(ccode1) %>%
-    mutate(ccode2 = as.numeric(ccode2)) %>%
-    left_join(here_it_is, .,
-              by = c("ccode1" = "ccode1",
-                     "ccode2" = "ccode2")) -> here_it_is
+  # taubmatrix %>% as_tibble() %>%
+  #   mutate(ccode1 = ccodes) %>%
+  #   gather(ccode2, taub, -ccode1) %>%
+  #   arrange(ccode1) %>%
+  #   mutate(ccode2 = as.numeric(ccode2)) %>%
+  #   left_join(here_it_is, .,
+  #             by = c("ccode1" = "ccode1",
+  #                    "ccode2" = "ccode2")) -> here_it_is
 
   print(paste("Ending", y, "on", Sys.time()))
   # ^ definitely don't end with this... Steve... okay...
@@ -159,16 +159,16 @@ parallel::stopCluster(cl = my.cluster) # close our clusters
 rm(my.cluster)
 
 
-FPSIMAPKT %>%
+FPSIMAPK %>%
   bind_rows() %>%
-  filter(ccode1 != ccode2) -> FPSIMAPKT
+  filter(ccode1 != ccode2) -> FPSIMAPK
 
-qs_save(FPSIMAPKT, "docs/data/FPSIMAPKT.qs")
-saveRDS(FPSIMAPKT, "docs/data/FPSIMAPKT.rds")
+qs_save(FPSIMAPK, "docs/data/fpsim-alliances-pk.qs")
+saveRDS(FPSIMAPK, "docs/data/fpsim-alliances-pk.rds")
 
 
 
-sink(file = "inst/scripts/3-fpsim-alliances-pkt.log")
+sink(file = "inst/scripts/fpsim-alliances-pk.log")
 timestamp()
 tic.log()
 sink()
