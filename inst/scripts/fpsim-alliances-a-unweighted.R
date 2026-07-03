@@ -140,7 +140,7 @@ FPSIMAAU %>%
 qs_save(FPSIMAAU, "docs/data/alliances-a-unweighted.qs")
 saveRDS(FPSIMAAU, "docs/data/alliances-a-unweighted.rds")
 
-sink(file = "inst/scripts/alliances-a-unweighted.log")
+sink(file = "inst/scripts/fpsim-alliances-a-unweighted.log")
 timestamp()
 tic.log()
 sink()

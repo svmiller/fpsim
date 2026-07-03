@@ -101,7 +101,7 @@ saveRDS(FPSIMAT, "docs/data/alliances-taub.rds")
 
 
 
-sink(file = "inst/scripts/4-fpsim-alliances-taub.log")
+sink(file = "inst/scripts/fpsim-alliances-taub.log")
 timestamp()
 tic.log()
 sink()
