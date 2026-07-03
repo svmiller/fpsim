@@ -96,8 +96,8 @@ FPSIMAT %>%
   bind_rows() %>%
   filter(ccode1 != ccode2) -> FPSIMAT
 
-qs_save(FPSIMAT, "docs/data/alliances-taub.qs")
-saveRDS(FPSIMAT, "docs/data/alliances-taub.rds")
+qs_save(FPSIMAT, "docs/data/fpsim-alliances-taub.qs")
+saveRDS(FPSIMAT, "docs/data/fpsim-alliances-taub.rds")
 
 
 
