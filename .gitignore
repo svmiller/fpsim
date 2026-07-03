@@ -6,4 +6,4 @@ _dross/
 CRAN-SUBMISSION
 .positai
 
-!inst/scripts/create-fpsim-data.sh
+*.sh
