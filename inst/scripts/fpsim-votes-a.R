@@ -80,8 +80,8 @@ FPSIMVA %>%
   bind_rows() %>%
   filter(ccode1 != ccode2) -> FPSIMVA
 
-qs_save(FPSIMVPK, "docs/data/fpsim-votes-a.qs")
-saveRDS(FPSIMVPK, "docs/data/fpsim-votes-a.rds")
+qs_save(FPSIMVA, "docs/data/fpsim-votes-a.qs")
+saveRDS(FPSIMVA, "docs/data/fpsim-votes-a.rds")
 
 
 sink(file = "inst/scripts/fpsim-votes-a.log")
