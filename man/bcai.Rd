@@ -2,14 +2,21 @@
 % Please edit documentation in R/bcai.R
 \name{bcai}
 \alias{bcai}
-\title{Calculate Benati and Capurri's (2026) alignment index}
+\title{Calculate Benati and Capurri's (2026) alignment index (A)}
 \usage{
-bcai(x1, x2, levels = NULL)
+bcai(x1, x2, distances = "absolute", weights = NULL, levels = NULL)
 }
 \arguments{
 \item{x1}{a vector, and one assumes an integer}
 
 \item{x2}{a vector, and one assumes an integer}
+
+\item{distances}{the type of distances between ratings/attachments to
+estimate. Can be either "absolute" or "squared". Defaults to "absolute", but
+see note in details section.}
+
+\item{weights}{a vector of weights. Defaults to NULL for creating unweighted
+A index values.}
 
 \item{levels}{defaults to NULL, but an optional vector that defines the full
 sequence of values that could be observed in \code{x1} and \code{x2}. If NULL, the
@@ -17,11 +24,11 @@ function looks for observed values.}
 }
 \value{
 \code{bcai()} takes two vectors and returns Benati and Capurri's (2026)
-alignment index.
+alignment index (A).
 }
 \description{
 \code{bcai()} takes two vectors and returns Benati and Capurri's (2026)
-alignment index.
+alignment index (A).
 }
 \details{
 You can think of the alignment index that Benati and Capurri (2026) describe
@@ -45,11 +52,22 @@ The \code{levels} argument allows you to specify the full sequence of values tha
 could be observed, even if none were. It probably makes the most sense to
 always use this argument, even if the default behavior operates as if you
 won't.
+\subsection{A Few Caveats on Weighting}{
+
+You can weight this measure if you want. Please be mindful about what you're
+doing, especially if the weights are CINC scores. See here:
+
+\url{https://svmiller.com/blog/2026/06/alliances-weighting-foreign-policy-similarity/}
+
+The function will proportionalize your weights to sum to 1 if they do not
+already.
+}
 }
 \examples{
 
 bcai(gmyrus14$gmy, gmyrus14$rus, levels = 0:3) # with levels argument
 bcai(bencapex$rowv, bencapex$colv) # levels argument not necessary here.
+bcai(gmyrus14$gmy, gmyrus14$rus, distances = 'squared', levels = 0:3) # squared, with levels argument
 
 }
 \references{
