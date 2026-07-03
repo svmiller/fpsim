@@ -2,6 +2,10 @@
 
 ## All functions
 
+- [`bcai()`](https://svmiller.com/reference/bcai.md) : Calculate Benati
+  and Capurri's (2026) alignment index
+- [`bencapex`](https://svmiller.com/reference/bencapex.md) : A Worked
+  Example from Benati and Capurri (2026)
 - [`cohenk()`](https://svmiller.com/reference/cohenk.md) : Calculate
   Cohen's (1960, 1968) weighted kappa
 - [`gmyrus14`](https://svmiller.com/reference/gmyrus14.md) : Select

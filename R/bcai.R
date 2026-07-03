@@ -1,14 +1,14 @@
-#' Calculate Benati and Capurri's (2026) alignment index
+#' Calculate Benati and Capurri's (2026) alignment index (A)
 #'
 #' @description
 #'
 #' \code{bcai()} takes two vectors and returns Benati and Capurri's (2026)
-#' alignment index.
+#' alignment index (A).
 #'
 #' @return
 #'
 #' \code{bcai()} takes two vectors and returns Benati and Capurri's (2026)
-#' alignment index.
+#' alignment index (A).
 #'
 #' @details
 #'
