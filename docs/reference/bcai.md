@@ -86,11 +86,13 @@ application to voting at the United Nations General Assembly." *Quality
 ## Examples
 
 ``` r
-
-bcai(gmyrus14$gmy, gmyrus14$rus, levels = 0:3) # with levels argument
+# with levels argument
+bcai(gmyrus14$gmy, gmyrus14$rus, levels = 0:3)
 #> [1] -0.04
-bcai(bencapex$rowv, bencapex$colv) # levels argument not necessary here.
+# levels argument not necessary here.
+bcai(bencapex$rowv, bencapex$colv)
 #> [1] -0.07291667
-bcai(gmyrus14$gmy, gmyrus14$rus, distances = 'squared', levels = 0:3) # squared, with levels argument
+# squared, with levels argument
+bcai(gmyrus14$gmy, gmyrus14$rus, distances = 'squared', levels = 0:3)
 #> [1] -0.04
 ```

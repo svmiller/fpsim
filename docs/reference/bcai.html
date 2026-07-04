@@ -18,7 +18,6 @@ alignment index (A)."></head><body>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
-<li class="nav-item"><a class="nav-link" href="../articles/data-downloads.html">Downloadable Data</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
@@ -119,12 +118,14 @@ Quantity</em>. <a href="https://doi.org/10.1007/s11135-026-02814-x" class="exter
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">bcai</span><span class="op">(</span><span class="va">gmyrus14</span><span class="op">$</span><span class="va">gmy</span>, <span class="va">gmyrus14</span><span class="op">$</span><span class="va">rus</span>, levels <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span> <span class="co"># with levels argument</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># with levels argument</span></span></span>
+<span class="r-in"><span><span class="fu">bcai</span><span class="op">(</span><span class="va">gmyrus14</span><span class="op">$</span><span class="va">gmy</span>, <span class="va">gmyrus14</span><span class="op">$</span><span class="va">rus</span>, levels <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.04</span>
-<span class="r-in"><span><span class="fu">bcai</span><span class="op">(</span><span class="va">bencapex</span><span class="op">$</span><span class="va">rowv</span>, <span class="va">bencapex</span><span class="op">$</span><span class="va">colv</span><span class="op">)</span> <span class="co"># levels argument not necessary here.</span></span></span>
+<span class="r-in"><span><span class="co"># levels argument not necessary here.</span></span></span>
+<span class="r-in"><span><span class="fu">bcai</span><span class="op">(</span><span class="va">bencapex</span><span class="op">$</span><span class="va">rowv</span>, <span class="va">bencapex</span><span class="op">$</span><span class="va">colv</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.07291667</span>
-<span class="r-in"><span><span class="fu">bcai</span><span class="op">(</span><span class="va">gmyrus14</span><span class="op">$</span><span class="va">gmy</span>, <span class="va">gmyrus14</span><span class="op">$</span><span class="va">rus</span>, distances <span class="op">=</span> <span class="st">'squared'</span>, levels <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span> <span class="co"># squared, with levels argument</span></span></span>
+<span class="r-in"><span><span class="co"># squared, with levels argument</span></span></span>
+<span class="r-in"><span><span class="fu">bcai</span><span class="op">(</span><span class="va">gmyrus14</span><span class="op">$</span><span class="va">gmy</span>, <span class="va">gmyrus14</span><span class="op">$</span><span class="va">rus</span>, distances <span class="op">=</span> <span class="st">'squared'</span>, levels <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.04</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

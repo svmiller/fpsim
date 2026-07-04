@@ -58,10 +58,12 @@
 #' function looks for observed values.
 #'
 #' @examples
-#'
-#' bcai(gmyrus14$gmy, gmyrus14$rus, levels = 0:3) # with levels argument
-#' bcai(bencapex$rowv, bencapex$colv) # levels argument not necessary here.
-#' bcai(gmyrus14$gmy, gmyrus14$rus, distances = 'squared', levels = 0:3) # squared, with levels argument
+#' # with levels argument
+#' bcai(gmyrus14$gmy, gmyrus14$rus, levels = 0:3)
+#' # levels argument not necessary here.
+#' bcai(bencapex$rowv, bencapex$colv)
+#' # squared, with levels argument
+#' bcai(gmyrus14$gmy, gmyrus14$rus, distances = 'squared', levels = 0:3)
 #'
 #' @references
 #'

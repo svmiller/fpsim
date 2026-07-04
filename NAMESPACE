@@ -2,8 +2,10 @@
 
 export(bcai)
 export(cohenk)
+export(download.fpsim.data)
 export(spi)
 export(srs)
 export(taub)
 importFrom(stats,complete.cases)
 importFrom(stats,xtabs)
+importFrom(utils,download.file)

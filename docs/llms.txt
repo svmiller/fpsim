@@ -53,6 +53,8 @@ devtools::install_github("svmiller/fpsim")
   Example from Benati and Capurri (2026)
 - [`cohenk()`](https://svmiller.com/reference/cohenk.md) : Calculate
   Cohen's (1960, 1968) weighted kappa
+- [`download.fpsim.data()`](https://svmiller.com/reference/download.fpsim.data.md)
+  : Download FPSIM Data
 - [`gmyrus14`](https://svmiller.com/reference/gmyrus14.md) : Select
   Alliance Portfolios of Germany and Russia, 1914
 - [`spi()`](https://svmiller.com/reference/spi.md) : Calculate

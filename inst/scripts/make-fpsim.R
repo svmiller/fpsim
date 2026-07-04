@@ -19,10 +19,11 @@ FPSIMASU %>%
   full_join(., FPSIMVA) %>%
   left_join(., FPSIMVPK) -> FPSIM
 
-FPSIM %>%
-  select(ccode1:year, taub, sallyvua, sallybua, sallyvwa, sallybwa,
-         aallyvua, aallybua, aallyvwa, aallybwa,
-         pallyv:kallyb, avoteva:pvotev) -> FPSIM
+FPSIM %>% #names()
+  select(ccode1:year, taub,
+         sallyvua, sallybua, sallyvwa, sallybwa,
+         aallybua, aallybwa,
+         pallyb, kallyb, avoteva:pvotev) -> FPSIM
 
 
 saveRDS(FPSIM, "docs/data/FPSIM.rds")
