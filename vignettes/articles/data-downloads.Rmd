@@ -135,7 +135,7 @@ might appear as the first character of the column.
 | `avoteva` | *A* using (v)alued UN voting (vote) data, (a)bsolute distances |
 | `avotevs` | *A* using (v)alued UN voting (vote) data, (s)quared distances |
 | `pvotev` | Scott's (p)i using (v)alued UN voting (vote) data |
-| `kvotev` | Cohen's (k)appa sing (v)alued UN voting (vote) data  |
+| `kvotev` | Cohen's (k)appa using (v)alued UN voting (vote) data  |
 
 
 [1]: https://svmiller.com/fpsim/data/fpsim-alliances-s-unweighted.qs
