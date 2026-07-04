@@ -19,7 +19,7 @@ FPSIMASU %>%
   full_join(., FPSIMVA) %>%
   left_join(., FPSIMVPK) -> FPSIM
 
-FPSIM %>%# names(.)
+FPSIM %>%
   select(ccode1:year, taub, sallyvua, sallybua, sallyvwa, sallybwa,
          aallyvua, aallybua, aallyvwa, aallybwa,
          pallyv:kallyb, avoteva:pvotev) -> FPSIM
