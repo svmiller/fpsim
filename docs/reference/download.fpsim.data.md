@@ -50,7 +50,7 @@ download.fpsim.data()
 #> 
 #> CRAN generally frowns on functions that foist non-interactive execution on the user or assume a console session. Please set confirm = TRUE to actually get the data, which will be available to you in the package's extdata/ directory. Here:
 #> 
-#> /tmp/RtmpFAOuoa/temp_libpath6a5987974c3fa/fpsim/extdata
+#> /tmp/RtmpgwxTmd/temp_libpath6ae387f5c1ca3/fpsim/extdata
 #> 
 #> This function may not be available to you if you have file permission issues related to where your R packages install. This message should also be CRAN-compliant.
 

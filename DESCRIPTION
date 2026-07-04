@@ -1,6 +1,6 @@
 Package: fpsim
 Title: Compute Measures of Foreign Policy Similarity/Agreement
-Version: 0.1.9
+Version: 0.2.0
 Authors@R: person("Steven", "Miller",
                   email = "steve@svmiller.com", 
                   role = c("aut", "cre"),
