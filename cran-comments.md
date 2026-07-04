@@ -1,6 +1,6 @@
 ## Test environment
 
-- Pop! OS 22.04, R 4.4.1
+- Pop! OS 22.04, R 4.5.1
 
 ## Initial Comments to CRAN
 
