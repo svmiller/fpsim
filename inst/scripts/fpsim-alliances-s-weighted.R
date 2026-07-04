@@ -53,11 +53,11 @@ FPSIMASW <- foreach(
 
 
   ## s ([v]alued, [w]eighted, [s]quared)
-  #svwsmatrix <- matrix(NA, nrow = n, ncol = n, dimnames = list(ccodes, ccodes))
+  svwsmatrix <- matrix(NA, nrow = n, ncol = n, dimnames = list(ccodes, ccodes))
   # s ([v]alued, [w]eighted, [a]bsolute)
   svwamatrix <- matrix(NA, nrow = n, ncol = n, dimnames = list(ccodes, ccodes))
   ## s ([b]inary, [w]eighted, [s]quared)
-  # sbwsmatrix <- matrix(NA, nrow = n, ncol = n, dimnames = list(ccodes, ccodes))
+  sbwsmatrix <- matrix(NA, nrow = n, ncol = n, dimnames = list(ccodes, ccodes))
   # s ([b]inary, [w]eighted, [a]bsolute)
   sbwamatrix <- matrix(NA, nrow = n, ncol = n, dimnames = list(ccodes, ccodes))
 
