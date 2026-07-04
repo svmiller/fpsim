@@ -137,8 +137,8 @@ FPSIMAAU %>%
   bind_rows() %>%
   filter(ccode1 != ccode2) -> FPSIMAAU
 
-qs_save(FPSIMAAU, "docs/data/alliances-a-unweighted.qs")
-saveRDS(FPSIMAAU, "docs/data/alliances-a-unweighted.rds")
+qs_save(FPSIMAAU, "docs/data/fpsim-alliances-a-unweighted.qs")
+saveRDS(FPSIMAAU, "docs/data/fpsim-alliances-a-unweighted.rds")
 
 sink(file = "inst/scripts/fpsim-alliances-a-unweighted.log")
 timestamp()
