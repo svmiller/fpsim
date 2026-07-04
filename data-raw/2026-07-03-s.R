@@ -12,16 +12,84 @@ library(fpsim)
 # First, let's show the output of srs() and with the example data to reproduce
 # what Signorino and Ritter (1999) show in their Table 6.
 
+srs <- function(x1, x2, distances = 'absolute', weights = NULL, range = NULL) {
+
+  if(length(x1) != length(x2)) {
+    stop("`x1` and `x2` are not the same length.")
+  }
+
+  if (!is.null(weights) && (length(weights) != length(x1) || length(weights) != length(x2))) {
+    stop("`weights` must be the same length as `x1` and `x2` if you're going to provide it.")
+  }
+
+  # force complete cases, just in case
+  if(is.null(weights)) {
+    completetf <- complete.cases(x1, x2)
+
+    x1 <- x1[completetf]
+    x2 <- x2[completetf]
+
+  } else {
+
+    completetf <- complete.cases(x1, x2, weights)
+
+    x1 <- x1[completetf]
+    x2 <- x2[completetf]
+    weights <- weights[completetf]
+
+  }
+
+  if(is.null(range)) {
+
+    levs <- sort(unique(c(x1, x2)))
+    diff <- max(levs) - min(levs)
+
+  } else {
+
+    diff <- range
+
+  }
+
+  if(distances == 'squared') {
+
+    num <-  sum((x1 - x2)^2)
+    denom <- length(x1)*(diff^2)
+
+  } else if(distances == 'absolute') {
+
+    if(is.null(weights)) {
+
+      num <- sum(abs(x1 - x2))
+      denom <- length(x1)*diff
+
+    } else {
+
+      num <- sum(abs(x1 - x2)*weights)
+      denom <- sum(weights)*diff
+
+
+    }
+
+  }
+
+  s <- 1 - 2*(num/denom)
+
+  return(s)
+
+}
+
 srs(gmyrus14$gmy, gmyrus14$rus, distances = "absolute")
 
 
 # Now, let's do it another way. I'll be borrowing from the functions I wrote,
-# which leans on an x1, x2, and a specified leve.s
+# which leans on an x1, x2, and a specified levels
 
 x1 <- gmyrus14$gmy
 x2 <- gmyrus14$rus
 
 use.these.levels <- c(0:3)
+levs <- c(0:3)
+
 
 completetf <- complete.cases(x1, x2)
 
@@ -56,6 +124,10 @@ weights <- gmyrus14$syscap
 o <- xtabs(weights ~
              factor(x1, levels = levs) +
              factor(x2, levels = levs))
+
+if(sum(o) != 1) {
+  o <- o/sum(o)
+}
 
 rmarg <- rowSums(o)
 cmarg <- colSums(o)
