@@ -65,10 +65,10 @@ FPSIMASU <- foreach(
       #sbusscores <- srs(B[i, ], B[j, ], data = "alliances", distances = "squared", ordered = FALSE)
       #sbuascores <- srs(B[i, ], B[j, ], data = "alliances", distances = "absolute", ordered = FALSE)
 
-      svusscores <- srs(t(V[i, ]), t(V[j, ]), distances = 'squared', range = 3)
-      svuascores <- srs(t(V[i, ]), t(V[j, ]), distances = 'absolute', range = 3)
-      sbusscores <- srs(t(B[i, ]), t(B[j, ]), distances = 'squared', range = 1)
-      sbuascores <- srs(t(B[i, ]), t(B[j, ]), distances = 'absolute', range = 1)
+      svusscores <- srs(t(V[i, ]), t(V[j, ]), distances = 'squared', levels = 0:3)
+      svuascores <- srs(t(V[i, ]), t(V[j, ]), distances = 'absolute', levels = 0:3)
+      sbusscores <- srs(t(B[i, ]), t(B[j, ]), distances = 'squared', levels = 0:1)
+      sbuascores <- srs(t(B[i, ]), t(B[j, ]), distances = 'absolute', levels = 0:1)
 
 
 
