@@ -41,8 +41,8 @@
 #'
 #' \url{https://svmiller.com/blog/2026/06/alliances-weighting-foreign-policy-similarity/}
 #'
-#' The function will proportionalize your weights to sum to 1 if they do not
-#' already.
+#' The function will proportionalize your weights to sum to 1 if they do not sum
+#' to 1 already.
 #'
 #'
 #'
@@ -159,7 +159,7 @@ bcai <- function(x1, x2, distances = "absolute", weights = NULL, levels = NULL) 
       d  <- abs(row(o) - col(o))
       dd <- max(use.these.levels) - min(use.these.levels) # nrow(o) - 1
 
-      S <- 1 - 2 * sum(o * d) / dd
+      S <- 1 - 2*sum(o*d)/dd
 
       # Calculate expected S, with weights...
       e <- outer(rmarg, cmarg)
@@ -221,7 +221,7 @@ bcai <- function(x1, x2, distances = "absolute", weights = NULL, levels = NULL) 
       d  <- abs(row(o) - col(o))^2
       dd <- (max(use.these.levels) - min(use.these.levels))^2 # nrow(o) - 1
 
-      S <- 1 - 2 * sum(o * d) / dd
+      S <- 1 - 2*sum(o*d)/dd
 
       # Calculate expected S, with weights...
       e <- outer(rmarg, cmarg)

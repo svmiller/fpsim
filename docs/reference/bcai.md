@@ -74,7 +74,7 @@ you're doing, especially if the weights are CINC scores. See here:
 <https://svmiller.com/blog/2026/06/alliances-weighting-foreign-policy-similarity/>
 
 The function will proportionalize your weights to sum to 1 if they do
-not already.
+not sum to 1 already.
 
 ## References
 

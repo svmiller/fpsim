@@ -59,8 +59,8 @@ doing, especially if the weights are CINC scores. See here:
 
 \url{https://svmiller.com/blog/2026/06/alliances-weighting-foreign-policy-similarity/}
 
-The function will proportionalize your weights to sum to 1 if they do not
-already.
+The function will proportionalize your weights to sum to 1 if they do not sum
+to 1 already.
 }
 }
 \examples{

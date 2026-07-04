@@ -64,3 +64,9 @@ devtools::install_github("svmiller/fpsim")
 - [`usamex46`](https://svmiller.com/reference/usamex46.md) :
   American-Mexican Dyadic Voting Patterns in the United Nations, 1946
 
+# Articles
+
+### All vignettes
+
+- [Downloadable Dyadic Foreign Policy Similarity Data
+  Sets](https://svmiller.com/articles/data-downloads.md):

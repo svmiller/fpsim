@@ -6,7 +6,7 @@ communicating broadly understood "similarity" of interests or ratings.
 ## Usage
 
 ``` r
-srs(x1, x2, distances = "absolute", weights = NULL, range = NULL)
+srs(x1, x2, distances = "absolute", weights = NULL, levels = NULL)
 ```
 
 ## Arguments
@@ -30,12 +30,11 @@ srs(x1, x2, distances = "absolute", weights = NULL, range = NULL)
   a vector of weights. Defaults to NULL for creating unweighted S
   statistics
 
-- range:
+- levels:
 
-  defaults to NULL, but an optional vector that forces the range to be a
-  certain value. If NULL, the function calculates a range based on the
-  maximum and minimum values observed across both `x1` and `x2`. See
-  details section for more.
+  defaults to NULL, but an optional vector that defines the full
+  sequence of values that could be observed in `x1` and `x2`. If NULL,
+  the function looks for observed values.
 
 ## Value
 
@@ -48,20 +47,14 @@ Be advised that Signorino and Ritter's (1999) treatment of the S
 statistic used absolute distances when squared distances are more
 commonly used in the world of distance and association metrics.
 
-There are potentially instances in which the conceivable range of
-ratings/attachments (i.e. your two vectors) are not observed. In the
-case of applications to alliance data, this is almost an impossibility.
-Every state, by assumption, is maximally committed to defending itself.
-There will assuredly be cases in which there is no commitment to another
-state in the data (either for reasons of disinterest or enmity, though
-the first calls into question what a 0 should communicate and the latter
-betrays the interesting complexity of alliances). Thus, the minimum and
-maximum, one assumes, will always be observed in the alliance data.
-Perhaps the same could be said for UN voting data, though I couldn't
-rule out the possibility that there is a dyad out there for which both
-states never voted "yes" or "no". That would have implications for the
-range in the denominator of the formula. You can override that by
-hard-setting the range in the `range` argument.
+There will sometimes be instances, assuredly with alliances, where not
+all categories are observed. For example, the toy example I provide of
+Germany and Russia in 1914 includes no 2s. In the language of "ratings",
+the "rating" of 2 was available for Germany and Russia in 1914 but
+neither side used it. The `levels` argument allows you to specify the
+full sequence of values that could be observed, even if none were. It
+probably makes the most sense to always use this argument, even if the
+default behavior operates as if you won't.
 
 The function subsets to complete cases of the two vectors for which you
 want an S score. If weights are included, the function further subsets
@@ -75,21 +68,27 @@ the same length. The function will stop if they're not.
 
 If it were my call to make, I'd caution against the IR standard of using
 the composite index of national capabilities (CINC) as a weight on the
-calculation of the S statistic. Conceptually, weighting by capabilities
-tries to capture some kind of "importance" quantity. Related to the
-familiar application of alliances, this would prioritize those states
-that could conceivably bring more to the battlefield. In practice, this
-adds one anachronism to another. Capabilities, as measured, are
-basically a nineteenth century measurement for which estimates of energy
-consumption, iron and steel production, and urban population size are
-given equal weight in composition of the measure to military
-expenditures and military size. Alliances themselves are somewhat
-antiquarian, certainly in what we want them to do for this measure. If
-the question is "why must alliances be measures of foreign policy
-similarity", the answer kind of reduces to "we have historical data on
-them." If you want estimates for the 19th century, you have this, but
-then are implicitly confessing your measure of foreign policy similarity
-is an anachronism.
+calculation of the S statistic. I expand a bit on this line of thinking
+on my blog here:
+
+<https://svmiller.com/blog/2026/06/alliances-weighting-foreign-policy-similarity/>
+
+The following was my original entry into this documentation file and
+I'll keep it as is for posterity. Conceptually, weighting by
+capabilities tries to capture some kind of "importance" quantity.
+Related to the familiar application of alliances, this would prioritize
+those states that could conceivably bring more to the battlefield. In
+practice, this adds one anachronism to another. Capabilities, as
+measured, are basically a nineteenth century measurement for which
+estimates of energy consumption, iron and steel production, and urban
+population size are given equal weight in composition of the measure to
+military expenditures and military size. Alliances themselves are
+somewhat antiquarian, certainly in what we want them to do for this
+measure. If the question is "why must alliances be measures of foreign
+policy similarity", the answer kind of reduces to "we have historical
+data on them." If you want estimates for the 19th century, you have
+this, but then are implicitly confessing your measure of foreign policy
+similarity is an anachronism.
 
 There are other peculiarities too. The data on capabilities has always
 been historically skewed to the right. Very few states have
@@ -120,10 +119,6 @@ applications with Correlates of War's CINC scores, you can still use the
 raw data because the function doesn't assume the weights sum to 1.
 You'll see how in the denominator of the formula.
 
-Weights are only applicable to absolute distances. If you specify a
-weight variable with `distances = 'squared'`, the function will ignore
-your weights.
-
 In applications to the Correlates of War system, as far as I am aware,
 there are no CoW states for which there isn't a CINC estimate. If, for
 some reason, a CINC score (or some other weight) is missing, the cases
@@ -132,6 +127,9 @@ are dropped *before* weights are applied.
 If weights are supplied, the weights must match the length of either
 `x1` or `x2`. The function builds in an implicit assumption that the
 weights are a column in the data frame you're using.
+
+The function will proportionalize your weights to sum to 1 if they do
+not sum to 1 already.
 
 ## References
 
@@ -143,10 +141,10 @@ Studies Quarterly* 43(1): 115–44.
 
 ``` r
 
-srs(gmyrus14$gmy, gmyrus14$rus, distances = 'absolute')
+srs(gmyrus14$gmy, gmyrus14$rus, distances = 'absolute', levels = c(0:3))
 #> [1] 0.4
-srs(gmyrus14$gmy, gmyrus14$rus, distances = 'squared')
+srs(gmyrus14$gmy, gmyrus14$rus, distances = 'squared', levels = c(0:3))
 #> [1] 0.4444444
-srs(gmyrus14$gmy, gmyrus14$rus, distances = 'absolute', weights = gmyrus14$syscap)
+srs(gmyrus14$gmy, gmyrus14$rus, distances = 'absolute', weights = gmyrus14$syscap, levels = c(0:3))
 #> [1] -0.46
 ```
