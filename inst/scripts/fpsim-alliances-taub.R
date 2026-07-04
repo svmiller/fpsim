@@ -73,7 +73,7 @@ FPSIMAT <- foreach(
 
   taubmatrix %>% as_tibble() %>%
     mutate(ccode1 = ccodes) %>%
-    gather(ccode2, pallyv, -ccode1) %>%
+    gather(ccode2, taub, -ccode1) %>%
     arrange(ccode1) %>%
     mutate(ccode2 = as.numeric(ccode2)) %>%
     mutate(year = y) %>%

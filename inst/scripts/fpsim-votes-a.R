@@ -59,7 +59,8 @@ FPSIMVA <- foreach(
     separate(dyad, c("ccode1", "ccode2")) %>%
     mutate(ccode1 = as.numeric(ccode1),
            ccode2 = as.numeric(ccode2)) %>%
-    mutate(year = y)  -> here_it_is
+    mutate(year = y) %>%
+    select(ccode1, ccode2, year, everything())  -> here_it_is
 
 
   print(paste("Ending", y, "on", Sys.time()))
