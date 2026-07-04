@@ -50,14 +50,14 @@ download.fpsim.data()
 #> 
 #> CRAN generally frowns on functions that foist non-interactive execution on the user or assume a console session. Please set confirm = TRUE to actually get the data, which will be available to you in the package's extdata/ directory. Here:
 #> 
-#> /tmp/RtmpQwSYVJ/temp_libpath695bb9cc52c0/fpsim/extdata
+#> /tmp/RtmpFAOuoa/temp_libpath6a5987974c3fa/fpsim/extdata
 #> 
 #> This function may not be available to you if you have file permission issues related to where your R packages install. This message should also be CRAN-compliant.
 
 # If you use this function, please inspect the extdata/ directory of the R
 # package on your system. This function's output will tell you where it is.
 # Thereafter, you can manually read a particular file into R. Something like
-# this would work, though.
+# this would work, though, if you had no idea where anything is.
 #
 # a <- paste0(system.file("extdata", package = "fpsim"),"/fpsim-votes-a.rds")
 # Data <- readRDS(a)

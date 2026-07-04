@@ -34,7 +34,7 @@
 #' # If you use this function, please inspect the extdata/ directory of the R
 #' # package on your system. This function's output will tell you where it is.
 #' # Thereafter, you can manually read a particular file into R. Something like
-#' # this would work, though.
+#' # this would work, though, if you had no idea where anything is.
 #' #
 #' # a <- paste0(system.file("extdata", package = "fpsim"),"/fpsim-votes-a.rds")
 #' # Data <- readRDS(a)

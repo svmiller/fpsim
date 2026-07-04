@@ -11,6 +11,8 @@
   more like [`bcai()`](https://svmiller.com/reference/bcai.md). `range`
   argument also replaced with `levels`. Support added for weighted,
   squared distances.
+- Add
+  [`download.fpsim.data()`](https://svmiller.com/reference/download.fpsim.data.md).
 
 ## fpsim 0.1.0
 

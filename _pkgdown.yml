@@ -9,7 +9,7 @@ navbar:
     left: [home, reference, tutorial, news]
     right: [search, github]
 
-components:
-  tutorial:
-    text: Downloadable Data
-    href: articles/data-downloads.html
+  components:
+    tutorial:
+      text: Downloadable Data
+      href: articles/data-downloads.html

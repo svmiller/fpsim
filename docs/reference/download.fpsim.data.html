@@ -20,6 +20,7 @@ directory. It leverages R's inst/ directory flexibility."></head><body>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="../articles/data-downloads.html">Downloadable Data</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
@@ -88,14 +89,14 @@ function in <span class="pkg">peacesciencer</span> will do that.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> CRAN generally frowns on functions that foist non-interactive execution on the user or assume a console session. Please set confirm = TRUE to actually get the data, which will be available to you in the package's extdata/ directory. Here:</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> /tmp/RtmpQwSYVJ/temp_libpath695bb9cc52c0/fpsim/extdata</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> /tmp/RtmpFAOuoa/temp_libpath6a5987974c3fa/fpsim/extdata</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> This function may not be available to you if you have file permission issues related to where your R packages install. This message should also be CRAN-compliant.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># If you use this function, please inspect the extdata/ directory of the R</span></span></span>
 <span class="r-in"><span><span class="co"># package on your system. This function's output will tell you where it is.</span></span></span>
 <span class="r-in"><span><span class="co"># Thereafter, you can manually read a particular file into R. Something like</span></span></span>
-<span class="r-in"><span><span class="co"># this would work, though.</span></span></span>
+<span class="r-in"><span><span class="co"># this would work, though, if you had no idea where anything is.</span></span></span>
 <span class="r-in"><span><span class="co">#</span></span></span>
 <span class="r-in"><span><span class="co"># a &lt;- paste0(system.file("extdata", package = "fpsim"),"/fpsim-votes-a.rds")</span></span></span>
 <span class="r-in"><span><span class="co"># Data &lt;- readRDS(a)</span></span></span>
