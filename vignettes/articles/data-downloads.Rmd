@@ -138,6 +138,7 @@ might appear as the first character of the column.
 | `kvotev` | Cohen's (k)appa using (v)alued UN voting (vote) data  |
 
 
+
 [1]: https://svmiller.com/fpsim/data/fpsim-alliances-s-unweighted.qs
 [2]: https://svmiller.com/fpsim/data/fpsim-alliances-s-unweighted.rds
 [3]: https://svmiller.com/fpsim/data/fpsim-alliances-s-weighted.qs
