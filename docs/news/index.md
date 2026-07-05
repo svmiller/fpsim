@@ -2,6 +2,8 @@
 
 ## fpsim 0.2.0
 
+CRAN release: 2026-07-04
+
 - Assorted documentation updates
 - Add `bencapex` as illustrative data frame.
 - Add [`bcai()`](https://svmiller.com/reference/bcai.md) for calculating
