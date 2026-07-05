@@ -113,24 +113,24 @@ might appear as the first character of the column.
 |:----------:|:-------------------------------------------------------------------------------|
 | `aallyvus` | *A* using (v)alued, (u)nweighted alliance (ally) data with (s)quared distances |
 | `aallyvua` | *A* using (v)alued, (u)nweighted alliance (ally) data with (a)bsolute distances |
-| `aallyvus` | *A* using (b)inary, (u)nweighted alliance (ally) data with (s)quared distances |
-| `aallyvua` | *A* using (b)inary, (u)nweighted alliance (ally) data with (a)bsolute distances |
+| `aallybus` | *A* using (b)inary, (u)nweighted alliance (ally) data with (s)quared distances |
+| `aallybua` | *A* using (b)inary, (u)nweighted alliance (ally) data with (a)bsolute distances |
 | `aallyvws` | *A* using (v)alued, (w)eighted alliance (ally) data with (s)quared distances |
 | `aallyvwa` | *A* using (v)alued, (w)eighted alliance (ally) data with (a)bsolute distances |
-| `aallyvws` | *A* using (b)inary, (w)eighted alliance (ally) data with (s)quared distances |
-| `aallyvwa` | *A* using (b)inary, (w)eighted alliance (ally) data with (a)bsolute distances |
+| `aallybws` | *A* using (b)inary, (w)eighted alliance (ally) data with (s)quared distances |
+| `aallybwa` | *A* using (b)inary, (w)eighted alliance (ally) data with (a)bsolute distances |
 | `pallyv` | Scott's (p)i (v)alued alliance (ally) data |
 | `pallyb` | Scott's (p)i (b)inary alliance (ally) data |
 | `kallyv` | Cohen's (k)appa using (v)alued alliance (ally) data |
 | `kallyb` | Cohen's (k)appa using (b)inary alliance (ally) data |
 | `sallyvus` | *S* using (v)alued, (u)nweighted alliance (ally) data with (s)quared distances |
 | `sallyvua` | *S* using (v)alued, (u)nweighted alliance (ally) data with (a)bsolute distances |
-| `sallyvus` | *S* using (b)inary, (u)nweighted alliance (ally) data with (s)quared distances |
-| `sallyvua` | *S* using (b)inary, (u)nweighted alliance (ally) data with (a)bsolute distances |
+| `sallybus` | *S* using (b)inary, (u)nweighted alliance (ally) data with (s)quared distances |
+| `sallybua` | *S* using (b)inary, (u)nweighted alliance (ally) data with (a)bsolute distances |
 | `sallyvws` | *S* using (v)alued, (w)eighted alliance (ally) data with (s)quared distances |
 | `sallyvwa` | *S* using (v)alued, (w)eighted alliance (ally) data with (a)bsolute distances |
-| `sallyvws` | *S* using (b)inary, (w)eighted alliance (ally) data with (s)quared distances |
-| `sallyvwa` | *S* using (b)inary, (w)eighted alliance (ally) data with (a)bsolute distances |
+| `sallybws` | *S* using (b)inary, (w)eighted alliance (ally) data with (s)quared distances |
+| `sallybwa` | *S* using (b)inary, (w)eighted alliance (ally) data with (a)bsolute distances |
 | `taub` | Kendall's Tau-b on valued alliance data (a legacy measure) |
 | `avoteva` | *A* using (v)alued UN voting (vote) data, (a)bsolute distances |
 | `avotevs` | *A* using (v)alued UN voting (vote) data, (s)quared distances |
